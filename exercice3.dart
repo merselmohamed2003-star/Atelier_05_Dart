@@ -1,15 +1,14 @@
-class NomVideException implements Exception {
-    @override
-  String toString() => 'Le nom ne doit pas être vide.';
+void verifierMotdepasse(String mp) {
+  if (mp.length < 6) {
+     throw Exception("Le mot de passe doit contenir au moins 6 caractères.");
+       }
+}
+void main() {
+ try {
+   verifierMotdepasse("abc");
+       print("Mot de passe valide");
+ } catch (e) {
+   print("Erreur : $e");
   }
+}
 
-  void main() {
-   String nom = 'Mohamed';
-   try {
-  if (nom.isEmpty) {
-    throw NomVideException();
-  }
-      } on NomVideException catch (e) {
-  print(e);
-}
-}
